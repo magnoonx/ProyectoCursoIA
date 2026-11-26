@@ -1,0 +1,20 @@
+=== REPORTE DE TRANSCRIPCIÓN DE AUDIO ===
+Archivo: reunion_coordinacion_semanal.wav
+Duración: 54.54 seg | Procesado en: 6.35 seg
+Idioma: es (Confianza: 100.0%)
+==========================================
+
+--- TEXTO CONTINUO ---
+Buenos días a todos. En esta reunión de coordinación semanal del equipo administrativo, vamos a revisar los entregables prioritarios. Punto número uno, la auditoría interna de calidad se llevará a cabo el día 20 de abril. Para esa fecha, todos los contratos de prestación de servicios de este año deben estar escaneados y cargados en el repositorio digital en formato PDF con sus polizas. Diana Martínez estará a cargo de verificar que los expedientes del personal tengan las certificaciones de seguridad social al día. Punto número dos, se ha detectado un incremento en los minutos de retardo durante los días lunes y viernes. Recordamos que el circular doce ya fue publicada y la tolerancia es de diez minutos. Con promisos, cada área enviará el viernes a las cuatro de la tarde su reporte de tareas completadas. Muchísimas gracias por su puntualidad y que tengan una excelente semana laboral.
+
+--- SEGMENTOS CON MARCAS DE TIEMPO ---
+[00:00 -> 00:05] Buenos días a todos. En esta reunión de coordinación semanal del equipo administrativo,
+[00:05 -> 00:11] vamos a revisar los entregables prioritarios. Punto número uno, la auditoría interna de
+[00:11 -> 00:16] calidad se llevará a cabo el día 20 de abril. Para esa fecha, todos los contratos de
+[00:16 -> 00:21] prestación de servicios de este año deben estar escaneados y cargados en el repositorio
+[00:21 -> 00:27] digital en formato PDF con sus polizas. Diana Martínez estará a cargo de verificar que
+[00:27 -> 00:32] los expedientes del personal tengan las certificaciones de seguridad social al día. Punto número
+[00:32 -> 00:37] dos, se ha detectado un incremento en los minutos de retardo durante los días lunes y
+[00:37 -> 00:42] viernes. Recordamos que el circular doce ya fue publicada y la tolerancia es de diez minutos.
+[00:42 -> 00:48] Con promisos, cada área enviará el viernes a las cuatro de la tarde su reporte de tareas completadas.
+[00:48 -> 00:53] Muchísimas gracias por su puntualidad y que tengan una excelente semana laboral.

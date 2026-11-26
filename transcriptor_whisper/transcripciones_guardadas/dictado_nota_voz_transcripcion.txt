@@ -1,0 +1,11 @@
+=== REPORTE DE TRANSCRIPCIÓN DE AUDIO ===
+Archivo: dictado_nota_voz.webm
+Duración: 18.84 seg | Procesado en: 1.89 seg
+Idioma: es (Confianza: 100.0%)
+==========================================
+
+--- TEXTO CONTINUO ---
+Esta es una nota de voz de prueba para verificar la funcionalidad de transcripción de voz a texto, que tiene Whisper, junto con Cuen, con el lenguaje, con el modelo de lenguaje, Cuen, de Alibaba.
+
+--- SEGMENTOS CON MARCAS DE TIEMPO ---
+[00:01 -> 00:18] Esta es una nota de voz de prueba para verificar la funcionalidad de transcripción de voz a texto, que tiene Whisper, junto con Cuen, con el lenguaje, con el modelo de lenguaje, Cuen, de Alibaba.

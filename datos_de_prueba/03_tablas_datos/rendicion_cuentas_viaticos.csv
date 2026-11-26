@@ -1,0 +1,10 @@
+﻿ID_Gasto,Fecha,Funcionario,Depto,Destino,Concepto,No_Factura,Monto_USD,Estado_Aprobacion
+VT-101,2026-03-05,Carlos Rodriguez,Contabilidad,Medellin,Tiquete Aereo,LATAM-9921,145.0,Aprobado
+VT-102,2026-03-05,Carlos Rodriguez,Contabilidad,Medellin,Hospedaje Hotel Dan,H-33214,85.0,Aprobado
+VT-103,2026-03-06,Carlos Rodriguez,Contabilidad,Medellin,Alimentacion Clientes,REST-441,62.5,Pendiente Auditoria
+VT-104,2026-03-06,Carlos Rodriguez,Contabilidad,Medellin,Taxi Aeropuerto,TX-008,25.0,Aprobado
+VT-105,2026-03-08,Fernanda Ortiz,Ventas,Cali,Combustible Vehiculo,EST-8812,45.0,Aprobado
+VT-106,2026-03-08,Fernanda Ortiz,Ventas,Cali,Peajes Ruta Sur,PEA-552,18.0,Aprobado
+VT-107,2026-03-09,Fernanda Ortiz,Ventas,Cali,Cena Representacion,REST-901,110.0,Rechazado (Supera Limite Politica)
+VT-108,2026-03-12,Diana Martinez,Talento Humano,Bogota,Inscripcion Seminario Gestion,SEM-2026,210.0,Aprobado
+VT-109,2026-03-12,Diana Martinez,Talento Humano,Bogota,Transporte Urbano,UB-4411,30.0,Aprobado

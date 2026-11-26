@@ -1,0 +1,21 @@
+=== REPORTE DE TRANSCRIPCIÓN DE AUDIO ===
+Archivo: reunion_presupuesto_suministros.wav
+Duración: 64.92 seg | Procesado en: 21.97 seg
+Idioma: es (Confianza: 100.0%)
+==========================================
+
+--- TEXTO CONTINUO ---
+Buenos días equipo. Damos inicio a la reunión extraordinaria del comité de compras y suministros. El objetivo principal es revisar las solicitudes de papelería y cafetería para el segundo trimestre del año. Revisando el inventario actual, la secretaria ejecutiva anagómez nos alerta que estamos al límite crítico con las resmas de papel tamaño oficio, quedando únicamente 12 unidades cuando el mínimo de seguridad es 25. Adicionalmente, se requiere comprar cuatro cartuchos de tinta negra y dos cajas de boligrafos azules. El presupuesto máximo autorizado para esta orden de compra es de tres millones 800 mil pesos. Acuerdos tomados, primero, anagómez emitirá la orden de compra al proveedor habitual papeles andinos antes de este viernes. Segundo, el contador Carlos Rodríguez verificará la factura y aplicará la retensión del cuatro por ciento. Tercero, todo el material deberá ser recibido en bodega por Luis Morales el próximo martes a primera hora. Sin más temas que tratar, se levanta la sesión a las 10 y 45 de la mañana.
+
+--- SEGMENTOS CON MARCAS DE TIEMPO ---
+[00:00 -> 00:05] Buenos días equipo. Damos inicio a la reunión extraordinaria del comité de compras y suministros.
+[00:05 -> 00:11] El objetivo principal es revisar las solicitudes de papelería y cafetería para el segundo trimestre
+[00:11 -> 00:17] del año. Revisando el inventario actual, la secretaria ejecutiva anagómez nos alerta que
+[00:17 -> 00:22] estamos al límite crítico con las resmas de papel tamaño oficio, quedando únicamente 12 unidades
+[00:22 -> 00:29] cuando el mínimo de seguridad es 25. Adicionalmente, se requiere comprar cuatro cartuchos de tinta negra
+[00:29 -> 00:35] y dos cajas de boligrafos azules. El presupuesto máximo autorizado para esta orden de compra es de tres
+[00:35 -> 00:42] millones 800 mil pesos. Acuerdos tomados, primero, anagómez emitirá la orden de compra al
+[00:42 -> 00:48] proveedor habitual papeles andinos antes de este viernes. Segundo, el contador Carlos Rodríguez
+[00:48 -> 00:55] verificará la factura y aplicará la retensión del cuatro por ciento. Tercero, todo el material deberá ser
+[00:55 -> 01:00] recibido en bodega por Luis Morales el próximo martes a primera hora. Sin más temas que tratar,
+[01:00 -> 01:04] se levanta la sesión a las 10 y 45 de la mañana.

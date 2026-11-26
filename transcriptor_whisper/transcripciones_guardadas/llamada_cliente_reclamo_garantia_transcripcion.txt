@@ -1,0 +1,15 @@
+=== REPORTE DE TRANSCRIPCIÓN DE AUDIO ===
+Archivo: llamada_cliente_reclamo_garantia.wav
+Duración: 25.14 seg | Procesado en: 3.8 seg
+Idioma: es (Confianza: 100.0%)
+==========================================
+
+--- TEXTO CONTINUO ---
+Buenos días corporación andina, le atiende a anagómez del área de atención y quejas. Habla Fernando Torres de transportes rápidos. Ya mo porque en la factura 98-21 nos cobran 40 horas de soporte cuando correspondían 25. Ana genera radicado PQR-2026-004 con prioridad alta y el analista Iván Duque emitirá una nota crédito por la diferencia en 24 horas habiles.
+
+--- SEGMENTOS CON MARCAS DE TIEMPO ---
+[00:00 -> 00:05] Buenos días corporación andina, le atiende a anagómez del área de atención y quejas.
+[00:05 -> 00:08] Habla Fernando Torres de transportes rápidos.
+[00:08 -> 00:15] Ya mo porque en la factura 98-21 nos cobran 40 horas de soporte cuando correspondían 25.
+[00:15 -> 00:21] Ana genera radicado PQR-2026-004 con prioridad alta y el analista Iván Duque emitirá una nota
+[00:21 -> 00:24] crédito por la diferencia en 24 horas habiles.

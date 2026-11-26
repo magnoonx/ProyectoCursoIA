@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Ofimática IA | Entorno Local Offline</title>
+  <link rel="stylesheet" href="/static/css/style.css?v=2.0">
+</head>
+<body>
+
+  <!-- ENCABEZADO SUPERIOR -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">⚡</div>
+      <div class="brand-text">
+        <h1>Asistente Ofimática IA</h1>
+        <p>Laboratorio Local Offline | Qwen 2.5 3B + Whisper</p>
+      </div>
+    </div>
+    <div class="system-status">
+      <div class="status-badge" title="Estado de la conexión con el servidor LLM">
+        <span class="dot dot-amber" id="llm-dot"></span>
+        <span id="llm-status-text">LLM: Verificando...</span>
+      </div>
+      <div class="status-badge" title="Estado del motor de audio Whisper">
+        <span class="dot dot-green" id="whisper-dot"></span>
+        <span id="whisper-status-text">Whisper: Listo (base)</span>
+      </div>
+      <div class="status-badge" id="mobile-badge" style="border-color: rgba(99, 102, 241, 0.4); color: #a5b4fc;" title="URL para conectar celulares en la misma red WiFi del aula">
+        📱 <span id="mobile-url-text">WiFi Móvil: Conectando...</span>
+      </div>
+      <div class="status-badge" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;">
+        🔒 100% Offline (Sin Internet)
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="app-container">
+
+    <!-- NAVEGACIÓN LATERAL -->
+    <nav class="sidebar">
+      <a class="nav-item active" data-tab="tab-redaccion">
+        <span class="nav-item-icon">✍️</span>
+        <span>Redactor Ejecutivo</span>
+      </a>
+      <a class="nav-item" data-tab="tab-actas">
+        <span class="nav-item-icon">🎙️</span>
+        <span>Actas con Whisper</span>
+      </a>
+      <a class="nav-item" data-tab="tab-pdf">
+        <span class="nav-item-icon">📄</span>
+        <span>Lector de PDFs</span>
+      </a>
+      <a class="nav-item" data-tab="tab-tablas">
+        <span class="nav-item-icon">📊</span>
+        <span>Analista de Tablas</span>
+      </a>
+      <a class="nav-item" data-tab="tab-chat">
+        <span class="nav-item-icon">💬</span>
+        <span>Chat Asistencial</span>
+      </a>
+      <a class="nav-item" data-tab="tab-material">
+        <span class="nav-item-icon">📁</span>
+        <span>Banco de Pruebas</span>
+      </a>
+
+      <div class="sidebar-footer">
+        <div class="offline-callout">
+          <strong>💻 Modo Laboratorio</strong><br>
+          Inferencia en CPU local. Privacidad total de datos corporativos.
+        </div>
+      </div>
+    </nav>
+
+    <!-- ÁREA DE CONTENIDO -->
+    <main>
+
+      <!-- PESTAÑA 1: REDACTOR EJECUTIVO -->
+      <section id="tab-redaccion" class="module-view active">
+        <div class="module-header">
+          <h2>✍️ Redactor Inteligente de Documentos Administrativos</h2>
+          <p>Genera memorandos, circulares, correos y respuestas a clientes con tono corporativo formal y sin errores.</p>
+        </div>
+
+        <div class="grid-two-cols">
+          <div class="card">
+            <div class="card-title">
+              <span>Parámetros del Documento</span>
+              <button class="btn btn-secondary btn-sm" onclick="cargarEjemploRedaccion()">Cargar Ejemplo</button>
+            </div>
+
+            <div class="form-group">
+              <label>Tipo de Documento:</label>
+              <select id="redac-tipo" class="form-select">
+                <option value="Memorando Interno">Memorando Interno</option>
+                <option value="Circular Informativa">Circular Informativa Institucional</option>
+                <option value="Correo Formal de Solicitud">Correo Formal a Proveedor</option>
+                <option value="Respuesta a Reclamo / PQR">Respuesta Formal a Reclamo de Cliente (PQR)</option>
+                <option value="Convocatoria a Reunión">Convocatoria Oficial a Junta / Reunión</option>
+                <option value="Carta de Certificación">Carta de Recomendación o Certificación</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Remitente (De):</label>
+              <input type="text" id="redac-remitente" class="form-control" value="Dirección Administrativa y Financiera">
+            </div>
+
+            <div class="form-group">
+              <label>Destinatario (Para):</label>
+              <input type="text" id="redac-destinatario" class="form-control" value="Todo el Personal de la Sede Central">
+            </div>
+
+            <div class="form-group">
+              <label>Tono de la Comunicación:</label>
+              <select id="redac-tono" class="form-select">
+                <option value="Formal Institucional">Formal Institucional (Sobrio y riguroso)</option>
+                <option value="Ejecutivo y Conciso">Ejecutivo y Conciso (Directo al punto)</option>
+                <option value="Cordial y Persuasivo">Cordial y Empático (Atención al cliente / Cobranzas)</option>
+                <option value="Asertivo y Disciplinario">Asertivo y Normativo (Políticas y llamados de atención)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Puntos Clave / Instrucciones a comunicar:</label>
+              <textarea id="redac-instrucciones" placeholder="Escriba en borrador o en viñetas lo que debe incluir el documento..."></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="ejecutarRedaccion()">
+              <span>Generar Documento con IA</span> 🚀
+            </button>
+            <div class="loading-overlay" id="loading-redac">
+              <div class="spinner"></div> Redactando con Qwen 2.5 3B local...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Vista Previa del Documento Redactado</span>
+              <div>
+                <button class="btn btn-secondary btn-sm" onclick="copiarAlPortapapeles('resultado-redac')">📋 Copiar</button>
+                <button class="btn btn-secondary btn-sm" onclick="descargarTxt('resultado-redac', 'documento_oficial.txt')">💾 Guardar TXT</button>
+              </div>
+            </div>
+            <div class="result-box" id="resultado-redac">
+              <div class="result-placeholder">
+                <span>📄</span>
+                Complete los parámetros a la izquierda y presione "Generar Documento con IA" para redactar la comunicación oficial.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 2: TRANSCRIPCIÓN Y ACTAS CON WHISPER -->
+      <section id="tab-actas" class="module-view">
+        <div class="module-header">
+          <h2>🎙️ Transcriptor de Reuniones y Generador de Actas (Whisper)</h2>
+          <p>Convierte grabaciones de audio en actas oficiales estructuradas con resumen ejecutivo, acuerdos y tabla de compromisos.</p>
+        </div>
+
+        <div class="grid-two-cols">
+          <div class="card">
+            <div class="card-title">
+              <span>Cargar Audio de Reunión</span>
+            </div>
+
+            <div class="form-group">
+              <label>Usar Audio de Prueba del Laboratorio:</label>
+              <div class="sample-selector">
+                <select id="audio-muestra-select" class="form-select">
+                  <option value="">-- Seleccionar audio de muestra --</option>
+                  <option value="reunion_presupuesto_suministros.wav">Comité de Compras y Suministros (Presupuesto)</option>
+                  <option value="reunion_coordinacion_semanal.wav">Reunión de Coordinación Semanal (Tareas y Auditoría)</option>
+                  <option value="llamada_cliente_reclamo_garantia.wav">Llamada de Reclamo de Cliente (PQR Facturación)</option>
+                </select>
+                <button class="btn btn-secondary btn-sm" onclick="probarAudioMuestra()">Seleccionar</button>
+              </div>
+            </div>
+
+            <!-- OPCIÓN 1: GRABAR EN VIVO CON MICRÓFONO -->
+            <div style="background: rgba(99, 102, 241, 0.08); border: 1px dashed var(--primary); border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.2rem; text-align: center;">
+              <div style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btn-grabar-mic" onclick="toggleGrabacionMic()" style="border-color: var(--primary);">
+                  <span id="mic-icon">🎤</span> <span id="mic-label">Grabar Dictado / Nota de Voz</span>
+                </button>
+                <span id="grabando-timer" style="display: none; color: #ef4444; font-weight: 700; font-size: 0.9rem;">🔴 00:00</span>
+              </div>
+              <small style="color: var(--text-muted); font-size: 0.78rem;">Graba directamente desde el micrófono de tu computadora o diadema.</small>
+            </div>
+
+            <!-- OPCIÓN 2: SUBIR NOTA DE VOZ O AUDIO -->
+            <div class="file-dropzone" onclick="document.getElementById('input-audio-file').click()">
+              <div class="file-dropzone-icon">🎙️</div>
+              <p><strong>Arrastra o sube una nota de voz</strong></p>
+              <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 0.2rem;">
+                Compatible con notas de WhatsApp (.ogg, .opus), audios de celular (.m4a, .aac) y grabaciones (.mp3, .wav).
+              </p>
+              <input type="file" id="input-audio-file" accept="audio/*,.ogg,.opus,.m4a,.aac,.wav,.mp3" style="display:none;" onchange="archivoAudioSeleccionado(this)">
+              <small id="audio-file-name" style="color: var(--primary); font-weight: 600; display: block; margin-top: 0.4rem;"></small>
+            </div>
+
+            <audio id="audio-player" controls style="width: 100%; margin-bottom: 1rem; display: none;"></audio>
+
+            <div class="form-group">
+              <label>Audios y Notas de Voz de Muestra del Curso:</label>
+              <div class="sample-selector">
+                <select id="audio-muestra-select" class="form-select">
+                  <option value="">-- Seleccionar audio de muestra --</option>
+                  <option value="reunion_presupuesto_suministros.wav">Comité de Compras y Suministros (Presupuesto)</option>
+                  <option value="reunion_coordinacion_semanal.wav">Reunión de Coordinación Semanal (Tareas y Auditoría)</option>
+                  <option value="llamada_cliente_reclamo_garantia.wav">Llamada de Reclamo de Cliente (PQR Facturación)</option>
+                </select>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="probarAudioMuestra()">Seleccionar</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>¿Qué deseas que haga la IA con la nota de voz?:</label>
+              <select id="audio-objetivo-select" class="form-select">
+                <option value="acta_completa">Generar Acta Oficial de Reunión (con tabla de compromisos)</option>
+                <option value="correo_formal">Transformar Nota de Voz en Correo Formal de Negocios</option>
+                <option value="resumen_tareas">Extraer Lista de Tareas y Compromisos en Viñetas</option>
+                <option value="solo_texto">Solo Transcribir a Texto Limpio (sin muletillas)</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary" onclick="ejecutarTranscripcion()" style="width: 100%;">
+              <span>Procesar y Transcribir Nota de Voz</span> 🚀
+            </button>
+            <div class="loading-overlay" id="loading-audio">
+              <div class="spinner"></div> Transcribiendo con Whisper y redactando con Qwen 2.5 local en CPU (esto puede tomar 30-45 segundos)...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Acta de Reunión y Transcripción</span>
+              <div>
+                <button class="btn btn-secondary btn-sm" onclick="copiarAlPortapapeles('resultado-acta')">📋 Copiar</button>
+                <button class="btn btn-secondary btn-sm" onclick="descargarTxt('resultado-acta', 'acta_reunion.txt')">💾 Guardar Acta</button>
+              </div>
+            </div>
+            <div class="result-box" id="resultado-acta">
+              <div class="result-placeholder">
+                <span>🎙️</span>
+                Cargue o seleccione un audio a la izquierda para procesar la transcripción y generar la minuta formal de la reunión.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 3: LECTOR DE PDFS -->
+      <section id="tab-pdf" class="module-view">
+        <div class="module-header">
+          <h2>📄 Lector y Analizador de Documentos Administrativos (PDF)</h2>
+          <p>Inspecciona contratos, circulares internas y facturas para extraer obligaciones, fechas clave, montos y resúmenes.</p>
+        </div>
+
+        <div class="grid-two-cols">
+          <div class="card">
+            <div class="card-title">
+              <span>Seleccionar Documento PDF</span>
+            </div>
+
+            <div class="form-group">
+              <label>Usar Documento de Prueba del Curso:</label>
+              <div class="sample-selector">
+                <select id="pdf-muestra-select" class="form-select">
+                  <option value="">-- Seleccionar documento PDF --</option>
+                  <option value="Contrato_Prestacion_Servicios_No_402.pdf">Contrato de Prestación de Servicios No. 402</option>
+                  <option value="Circular_Interna_012_Politica_Horarios.pdf">Circular Interna 012 (Políticas y Horarios)</option>
+                  <option value="Factura_Comercial_Servicios_IT_9821.pdf">Factura Comercial No. 9821 (Servicios IT)</option>
+                  <option value="Acta_Sesion_Anterior_Comite_Directivo.pdf">Acta de Sesión Anterior del Comité</option>
+                </select>
+                <button class="btn btn-secondary btn-sm" onclick="probarPdfMuestra()">Seleccionar</button>
+              </div>
+            </div>
+
+            <div class="file-dropzone" onclick="document.getElementById('input-pdf-file').click()">
+              <div class="file-dropzone-icon">📑</div>
+              <p>O suba su propio archivo PDF desde el equipo</p>
+              <input type="file" id="input-pdf-file" accept=".pdf" style="display:none;" onchange="archivoPdfSeleccionado(this)">
+              <small id="pdf-file-name" style="color: var(--primary); font-weight: 600;"></small>
+            </div>
+
+            <div class="form-group">
+              <label>Consulta / Instrucción específica:</label>
+              <textarea id="pdf-consulta" placeholder="Ej: ¿Cuáles son las partes contratantes, el monto total y la fecha de vencimiento?"></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="ejecutarAnalisisPdf()">
+              <span>Analizar Documento PDF</span> 🔍
+            </button>
+            <div class="loading-overlay" id="loading-pdf">
+              <div class="spinner"></div> Extrayendo texto y procesando con el modelo...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Resultado del Análisis Documental</span>
+              <div>
+                <button class="btn btn-secondary btn-sm" onclick="copiarAlPortapapeles('resultado-pdf')">📋 Copiar</button>
+              </div>
+            </div>
+            <div class="result-box" id="resultado-pdf">
+              <div class="result-placeholder">
+                <span>📑</span>
+                Seleccione un PDF a la izquierda para formular preguntas y extraer información estructurada.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 4: ANALISTA DE HOJAS DE CÁLCULO (EXCEL / CSV) -->
+      <section id="tab-tablas" class="module-view">
+        <div class="module-header">
+          <h2>📊 Analista Inteligente de Hojas de Cálculo (Excel / CSV)</h2>
+          <p>Explora tablas de asistencia, inventarios de papelería, rendición de viáticos y métricas de soporte sin fórmulas complejas.</p>
+        </div>
+
+        <div class="grid-two-cols">
+          <div class="card">
+            <div class="card-title">
+              <span>Cargar Tabla de Datos</span>
+            </div>
+
+            <div class="form-group">
+              <label>Usar Tabla de Datos del Curso:</label>
+              <div class="sample-selector">
+                <select id="tabla-muestra-select" class="form-select">
+                  <option value="">-- Seleccionar hoja de cálculo --</option>
+                  <option value="control_asistencia_personal_marzo_2026.xlsx">Control de Asistencia del Personal (Retardos y Horas Extra)</option>
+                  <option value="inventario_suministros_oficina.xlsx">Inventario de Suministros (Stock y Alertas de Reorden)</option>
+                  <option value="rendicion_cuentas_viaticos.csv">Rendición de Cuentas de Viáticos (Gastos por Departamento)</option>
+                  <option value="registro_solicitudes_pqrs.xlsx">Registro de PQRS (Atención al Cliente y Tiempos de Respuesta)</option>
+                </select>
+                <button class="btn btn-secondary btn-sm" onclick="probarTablaMuestra()">Seleccionar</button>
+              </div>
+            </div>
+
+            <div class="file-dropzone" onclick="document.getElementById('input-tabla-file').click()">
+              <div class="file-dropzone-icon">📈</div>
+              <p>O suba un archivo .xlsx o .csv</p>
+              <input type="file" id="input-tabla-file" accept=".xlsx, .xls, .csv" style="display:none;" onchange="archivoTablaSeleccionado(this)">
+              <small id="tabla-file-name" style="color: var(--primary); font-weight: 600;"></small>
+            </div>
+
+            <div class="form-group">
+              <label>Pregunta o Enfoque del Diagnóstico:</label>
+              <textarea id="tabla-pregunta" placeholder="Ej: ¿Cuáles suministros están en estado de reorden urgente y cuánto costaría reabastecerlos?"></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="ejecutarAnalisisTabla()">
+              <span>Analizar Datos con IA</span> 📊
+            </button>
+            <div class="loading-overlay" id="loading-tabla">
+              <div class="spinner"></div> Procesando datos con Pandas y sintetizando con Qwen...
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span id="tabla-header-info">Informe y Diagnóstico Ejecutivo</span>
+              <div>
+                <button class="btn btn-secondary btn-sm" onclick="copiarAlPortapapeles('resultado-tabla')">📋 Copiar</button>
+              </div>
+            </div>
+            <div class="result-box" id="resultado-tabla">
+              <div class="result-placeholder">
+                <span>📈</span>
+                Seleccione una hoja de cálculo para generar resúmenes automáticos, detectar anomalías y realizar consultas numéricas en lenguaje natural.
+              </div>
+            </div>
+            <div id="contenedor-tabla-previa" style="overflow-x: auto; max-height: 200px; margin-top: 1rem; border-top: 1px solid var(--border-color); display:none;">
+              <table class="table-preview" id="tabla-preview-element">
+                <!-- Se llena dinámicamente -->
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 5: CHAT ASISTENCIAL LIBRE -->
+      <section id="tab-chat" class="module-view">
+        <div class="module-header">
+          <h2>💬 Asistente Conversacional para Ofimática y Secretaría</h2>
+          <p>Consulte dudas de redacción, formatos, protocolos corporativos y organización de tareas con el modelo Qwen 2.5 3B.</p>
+        </div>
+
+        <div class="card chat-window">
+          <div class="card-title">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <span>Rol del Asistente:</span>
+              <select id="chat-rol" class="form-select" style="width: auto; padding: 0.35rem 0.75rem;">
+                <option value="Asistente Ejecutivo General">Asistente Ejecutivo General</option>
+                <option value="Experto en Ortografía y Redacción">Experto en Ortografía y Redacción Formal</option>
+                <option value="Analista Contable y de Facturación">Analista Contable y de Facturación</option>
+                <option value="Gestor de Talento Humano">Gestor de Talento Humano y Clima Laboral</option>
+              </select>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="limpiarChat()">🗑️ Limpiar Conversación</button>
+          </div>
+
+          <div class="chat-messages" id="chat-messages-container">
+            <div class="chat-bubble assistant">
+              ¡Hola! Soy tu asistente de ofimática local con IA. Puedo ayudarte a redactar documentos, revisar ortografía, estructurar actas, organizar agendas o resolver dudas administrativas. ¿En qué puedo apoyarte hoy?
+            </div>
+          </div>
+
+          <div class="chat-input-area">
+            <input type="text" id="chat-user-input" class="form-control" placeholder="Escriba su consulta administrativa aquí..." onkeypress="if(event.key === 'Enter') enviarMensajeChat()">
+            <button class="btn btn-primary" onclick="enviarMensajeChat()">Enviar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 6: MATERIAL DEL LABORATORIO -->
+      <section id="tab-material" class="module-view">
+        <div class="module-header">
+          <h2>📁 Banco de Archivos y Material del Laboratorio</h2>
+          <p>Recursos preinstalados en la carpeta <code>datos_de_prueba</code> para realizar los talleres prácticos del curso.</p>
+        </div>
+
+        <div class="grid-two-cols">
+          <div class="card">
+            <div class="card-title">
+              <span>Audios de Reuniones Simuladas (01_audios_reuniones)</span>
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>reunion_presupuesto_suministros.wav</strong><br>
+                  <small style="color: var(--text-muted);">Comité de compras, stock crítico de papel y aprobación presupuestal.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/audios/reunion_presupuesto_suministros.wav" target="_blank" class="btn btn-secondary btn-sm">▶️ Escuchar</a>
+              </li>
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>reunion_coordinacion_semanal.wav</strong><br>
+                  <small style="color: var(--text-muted);">Coordinación operativa, auditoría de contratos y horarios.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/audios/reunion_coordinacion_semanal.wav" target="_blank" class="btn btn-secondary btn-sm">▶️ Escuchar</a>
+              </li>
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>llamada_cliente_reclamo_garantia.wav</strong><br>
+                  <small style="color: var(--text-muted);">Llamada de cliente por discrepancia en factura y radicación de PQR.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/audios/llamada_cliente_reclamo_garantia.wav" target="_blank" class="btn btn-secondary btn-sm">▶️ Escuchar</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              <span>Documentos Administrativos (02_documentos_pdf)</span>
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>Contrato_Prestacion_Servicios_No_402.pdf</strong><br>
+                  <small style="color: var(--text-muted);">Contrato de consultoría con cláusulas de honorarios y confidencialidad.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/pdfs/Contrato_Prestacion_Servicios_No_402.pdf" target="_blank" class="btn btn-secondary btn-sm">👁️ Ver PDF</a>
+              </li>
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>Circular_Interna_012_Politica_Horarios.pdf</strong><br>
+                  <small style="color: var(--text-muted);">Circular institucional sobre jornada laboral, horas extras y teletrabajo.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/pdfs/Circular_Interna_012_Politica_Horarios.pdf" target="_blank" class="btn btn-secondary btn-sm">👁️ Ver PDF</a>
+              </li>
+              <li style="padding: 0.75rem; background: var(--bg-card); border-radius: var(--radius-md); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <strong>Factura_Comercial_Servicios_IT_9821.pdf</strong><br>
+                  <small style="color: var(--text-muted);">Factura comercial con retenciones, IVA 19% e ítems de soporte técnico.</small>
+                </div>
+                <a href="/api/datos_prueba/cargar/pdfs/Factura_Comercial_Servicios_IT_9821.pdf" target="_blank" class="btn btn-secondary btn-sm">👁️ Ver PDF</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/static/js/app.js?v=2.0"></script>
+</body>
+</html>

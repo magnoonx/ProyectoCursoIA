@@ -1,0 +1,16 @@
+{
+  "archivo": "dictado_nota_voz.webm",
+  "idioma_detectado": "es",
+  "probabilidad_idioma": 1,
+  "duracion_audio_seg": 18.84,
+  "tiempo_procesamiento_seg": 1.89,
+  "transcripcion_continua": "Esta es una nota de voz de prueba para verificar la funcionalidad de transcripción de voz a texto, que tiene Whisper, junto con Cuen, con el lenguaje, con el modelo de lenguaje, Cuen, de Alibaba.",
+  "segmentos": [
+    {
+      "inicio_seg": 1.1,
+      "fin_seg": 18.1,
+      "tiempo_formato": "[00:01 -> 00:18]",
+      "texto": "Esta es una nota de voz de prueba para verificar la funcionalidad de transcripción de voz a texto, que tiene Whisper, junto con Cuen, con el lenguaje, con el modelo de lenguaje, Cuen, de Alibaba."
+    }
+  ]
+}

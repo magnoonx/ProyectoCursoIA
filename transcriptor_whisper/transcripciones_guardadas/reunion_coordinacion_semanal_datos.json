@@ -1,0 +1,70 @@
+{
+  "archivo": "reunion_coordinacion_semanal.wav",
+  "idioma_detectado": "es",
+  "probabilidad_idioma": 1,
+  "duracion_audio_seg": 54.54,
+  "tiempo_procesamiento_seg": 6.35,
+  "transcripcion_continua": "Buenos días a todos. En esta reunión de coordinación semanal del equipo administrativo, vamos a revisar los entregables prioritarios. Punto número uno, la auditoría interna de calidad se llevará a cabo el día 20 de abril. Para esa fecha, todos los contratos de prestación de servicios de este año deben estar escaneados y cargados en el repositorio digital en formato PDF con sus polizas. Diana Martínez estará a cargo de verificar que los expedientes del personal tengan las certificaciones de seguridad social al día. Punto número dos, se ha detectado un incremento en los minutos de retardo durante los días lunes y viernes. Recordamos que el circular doce ya fue publicada y la tolerancia es de diez minutos. Con promisos, cada área enviará el viernes a las cuatro de la tarde su reporte de tareas completadas. Muchísimas gracias por su puntualidad y que tengan una excelente semana laboral.",
+  "segmentos": [
+    {
+      "inicio_seg": 0.0,
+      "fin_seg": 5.92,
+      "tiempo_formato": "[00:00 -> 00:05]",
+      "texto": "Buenos días a todos. En esta reunión de coordinación semanal del equipo administrativo,"
+    },
+    {
+      "inicio_seg": 5.92,
+      "fin_seg": 11.4,
+      "tiempo_formato": "[00:05 -> 00:11]",
+      "texto": "vamos a revisar los entregables prioritarios. Punto número uno, la auditoría interna de"
+    },
+    {
+      "inicio_seg": 11.4,
+      "fin_seg": 16.96,
+      "tiempo_formato": "[00:11 -> 00:16]",
+      "texto": "calidad se llevará a cabo el día 20 de abril. Para esa fecha, todos los contratos de"
+    },
+    {
+      "inicio_seg": 16.96,
+      "fin_seg": 21.44,
+      "tiempo_formato": "[00:16 -> 00:21]",
+      "texto": "prestación de servicios de este año deben estar escaneados y cargados en el repositorio"
+    },
+    {
+      "inicio_seg": 21.44,
+      "fin_seg": 27.04,
+      "tiempo_formato": "[00:21 -> 00:27]",
+      "texto": "digital en formato PDF con sus polizas. Diana Martínez estará a cargo de verificar que"
+    },
+    {
+      "inicio_seg": 27.04,
+      "fin_seg": 32.76,
+      "tiempo_formato": "[00:27 -> 00:32]",
+      "texto": "los expedientes del personal tengan las certificaciones de seguridad social al día. Punto número"
+    },
+    {
+      "inicio_seg": 32.76,
+      "fin_seg": 37.12,
+      "tiempo_formato": "[00:32 -> 00:37]",
+      "texto": "dos, se ha detectado un incremento en los minutos de retardo durante los días lunes y"
+    },
+    {
+      "inicio_seg": 37.12,
+      "fin_seg": 42.68,
+      "tiempo_formato": "[00:37 -> 00:42]",
+      "texto": "viernes. Recordamos que el circular doce ya fue publicada y la tolerancia es de diez minutos."
+    },
+    {
+      "inicio_seg": 42.68,
+      "fin_seg": 48.76,
+      "tiempo_formato": "[00:42 -> 00:48]",
+      "texto": "Con promisos, cada área enviará el viernes a las cuatro de la tarde su reporte de tareas completadas."
+    },
+    {
+      "inicio_seg": 48.76,
+      "fin_seg": 53.72,
+      "tiempo_formato": "[00:48 -> 00:53]",
+      "texto": "Muchísimas gracias por su puntualidad y que tengan una excelente semana laboral."
+    }
+  ]
+}
